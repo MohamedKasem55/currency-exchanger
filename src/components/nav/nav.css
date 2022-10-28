@@ -1,0 +1,17 @@
+.class1{
+    background-color:black;
+    padding:15px;
+    display:flex;
+    justify-content:space-between
+}
+.nav-btn{
+    background-color:transparent;
+    color:white;
+    padding: 5px;
+    border-color: white;
+    border-radius: 5px;
+}
+.class2{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,6 +1,6 @@
 const environment={
-    API_KEY:"gQvCQ4Iklj6k4xMzG4F4I2wxBkqC5tfL",
-    BASE_API:"https://data.fixer.io/api"
+    API_KEY:"ij9Z4FyIM9kQsvr1QALOuPs2da491H4V 11",
+    BASE_API:"https://api.apilayer.com/fixer"
     
 }
 export default environment

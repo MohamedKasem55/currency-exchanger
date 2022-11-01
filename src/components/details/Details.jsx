@@ -9,7 +9,6 @@ function Details() {
     }, [location])
     const drawChart = async () => {
         let chartData= await getChart(location.state.base,location.state.to)
-        console.log(chartData);
         if(chartData){
             let ctx = document.getElementById("examChart").getContext("2d");
         new Chart(ctx, {

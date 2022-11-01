@@ -16,15 +16,12 @@ function Exchanger() {
     const ctx = useContext(convertionContex)
     let location = useLocation()
     let navigate = useNavigate()
-    console.log(location);
     const [form, setForm] = useState(formInitialValue)
     const [convertion, setConvertion] = useState({ result: "", rate: "" })
     const [symbols, setSymbols] = useState({})
     const submitHandler = (event) => {
         event.preventDefault()
-        console.log(form);
         convert(form.amount, form.from, form.to).then(data => data.json()).then(data => {
-            console.log(data);
             setConvertion({ result: Math.trunc(data.result * 100) / 100, rate: Math.trunc(data.info.rate * 10000) / 10000 });
         })
         ctx.onConvertionGridChange(form);
@@ -43,11 +40,10 @@ function Exchanger() {
     
     }
     const formUpdater = (event) => {
-        console.log(event.target.name, event.target.value);
         setForm(previousValue => ({ ...previousValue, [event.target.name]: event.target.value }))
     }
     const getSymbols = () => {
-        fetchSymbols().then(data => data.json()).then(data => setSymbols(data.symbols)).catch(error => console.log(error))
+        fetchSymbols().then(data => data.json()).then(data => setSymbols(data.symbols)).catch(error => error)
     }
     const symbolsArr = useMemo(() => {
         let arr = []

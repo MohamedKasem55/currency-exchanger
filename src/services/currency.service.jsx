@@ -13,17 +13,14 @@ headers: myHeaders,
 
 export const convert =(amount,from,to)=>{
     let url = APIConfig.convert_URL(amount,from,to);
-    console.log(url);
     return fetch(url,requestOptions)   
 }
 export const  fetchSymbols=()=>{
     let url = APIConfig.symbols_URL;
-    console.log(url);
     return fetch(url,requestOptions)
 }
 export const convertionGridFormation= async ({from,amount})=>{
     let url=gridUrlFormation(from)
-    console.log(url);
     try {
         let response= await fetch(url,requestOptions)
         let result =await response.json()
@@ -38,7 +35,6 @@ const gridMapping=(amount,base,rates)=>{
     for (const [to, rate] of Object.entries(rates)) {
         arr.push(`${amount} ${base}= ${Math.trunc(amount*rate*100)/100} ${to}`)
       }
-      console.log(arr);
     return arr
 }
 
@@ -52,11 +48,9 @@ export const getChart =async(base,to)=>{
     let startDate=currentDateFormatter(true)
     let endDate=currentDateFormatter()
     let url=APIConfig.timeSeries_URL(startDate,endDate)
-    console.log(url);
     try {
     let response = await fetch(url, requestOptions)
     let result = await response.json()
-    console.log(result);
     let chartDataArr=[]
     if (result)
      {for (const [date, rate] of Object.entries(result['rates'])) {
